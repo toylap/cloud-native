@@ -20,7 +20,7 @@
 - 도커 데스트톱이 실행 되어 있어야한다.
 
 위와 같은 조건을 통해 빌드하게 될 경우 cloud-native:0.0.1-SNAPSHOT와 같은 네이밍을 갖은 이미지를 생성할수 있다.
-```
+```sh
 ./gradlew bootBuildImage
 ```
 
@@ -43,20 +43,22 @@ docker run --rm --name cloud-native -p 8000:8080 cloud-native:0.0.1-SNAPSHOT
 #### 쿠버네티스 
 
 쿠버네티스 다운로드
-```
 //power shell
 
 // [초코가 없을 경우 다운]
+```sh
 Set-ExecutionPolicy Bypass -Scope Process -Force; `
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
 
 // 쿠버네티스 다운로드
+```sh
 choco install minikube
 ```
 
 쿠버네티스 실행
-```
+```sh
 minikube start
 ```
 
