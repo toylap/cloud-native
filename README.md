@@ -57,8 +57,22 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 choco install minikube
 ```
 
+```sh
+./gradlew bootBuildImage
+```
+
+루트 폴더 로 이동하여 작업
+```sh
+ docker images cloud-native:0.0.1-SNAPSHO
+```
+
 쿠버네티스 실행
 ```sh
 minikube start
+```
+
+쿠버네티스 이미지 로드
+```sh
+minikube image load cloud-native:0.0.1-SNAPSHOT   
 ```
 
