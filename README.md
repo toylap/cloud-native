@@ -32,13 +32,6 @@ docker image cloud-native:0.0.1-SNAPSHOT
 // 도커 이미지 실행
 docker run --rm --name cloud-native -p 8000:8080 cloud-native:0.0.1-SNAPSHOT
 ```
-- docker run : 이미지에서 컨테이너 실행
-- --rm : 실행 후 컨테이너 삭제
-- --nane cloud-native : 컨테이너 이름
-- -p 8000:8000 : 8000포트를 통해 컨테이너 외부로 서비스 송출 (호스트포트:docker 내부)
-- cloud-native:0.0.1-SNAPSHOT : 실행할 이미지 이름과 버전
-
-
 
 #### 쿠버네티스 
 
@@ -63,7 +56,7 @@ choco install minikube
 
 루트 폴더 로 이동하여 작업
 ```sh
- docker images cloud-native:0.0.1-SNAPSHO
+ docker images cloud-native:0.0.1-SNAPSHOT
 ```
 
 쿠버네티스 실행
@@ -71,8 +64,22 @@ choco install minikube
 minikube start
 ```
 
-쿠버네티스 이미지 로드
+이전에 로드한 도커 내에 있는 이미지를 쿠버네티스 이미지 로드
 ```sh
 minikube image load cloud-native:0.0.1-SNAPSHOT   
 ```
 
+쿠버네티스 이미지 생성 
+```sh
+kubectl create deployment cloude-native --image=cloud-native:0.0.1-SNAPSHOT   
+```
+
+쿠버네티스 외부로 노출 되도록 설정 
+```sh
+kubectl expose deployment cloud-native --name=cloud-native --port=8000
+```
+
+외부로 노출된 서비스 포트포워딩
+```sh
+kubectl port-forward service/cloud-native 8001:8000
+```
