@@ -83,3 +83,9 @@ kubectl expose deployment cloud-native --name=cloud-native --port=8000
 ```sh
 kubectl port-forward service/cloud-native 8001:8000
 ```
+
+jar build
+```sh
+./gradlew bootJar
+java -jar build/libs/cloud-native-0.0.1-SNAPSHOT.jar
+```
