@@ -1,6 +1,14 @@
+# 최적의 설정은 없습니다.
+# 기본적으로 처리되는 값이 있긴해도 리소스에 맞는 설정은 모니터링하여 설정값을 설정해야합니다.
+
 server:
   port: 8000
-
+  tomcat:
+    connection-timeout: 2s # HTTP 요청을 받기까지 tomcat 대기 시간
+    keep-alive-timeout: 15s # HTTP 요청 대기 시간 제어 / 시간이 지나면 새 연결 후 진행
+    threads:
+      max: 50
+      min-spare: 5
 spring:
   application:
     name: cloud-native
