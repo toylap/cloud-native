@@ -2,6 +2,7 @@ package me.toylep.spring.cloudnative.merchservice.web;
 
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import me.toylep.spring.cloudnative.merchservice.domain.Merch;
 import me.toylep.spring.cloudnative.merchservice.domain.MerchService;
@@ -27,7 +28,7 @@ public class MerchContorller {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Merch post(@RequestBody Merch merch){
+    public Merch post(@Valid @RequestBody Merch merch){
         return merchService.addMerchToCatalog(merch);
     }
 
@@ -38,7 +39,7 @@ public class MerchContorller {
     }
 
     @PutMapping("{isMn}")
-    public Merch put(@PathVariable String isMn, @RequestBody Merch merch){
+    public Merch put(@PathVariable String isMn,@Valid @RequestBody Merch merch){
         return merchService.editMerchDetail(isMn, merch);
     }
 }
