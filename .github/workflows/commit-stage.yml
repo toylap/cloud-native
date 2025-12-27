@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
-      security-everts: write
+      security-events: write
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
