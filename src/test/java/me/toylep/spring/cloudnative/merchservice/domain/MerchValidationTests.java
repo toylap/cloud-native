@@ -39,7 +39,7 @@ class MerchValidationTests {
         Set<ConstraintViolation<Merch>> violations = validator.validate(merch);
         assertThat(violations).hasSize(1);
         assertThat(violations.iterator().next().getMessage())
-                .isEqualTo("none Valid");
+                .isEqualTo("검증되지 않은 굿즈 일련번호입니다.");
     }
 
 
