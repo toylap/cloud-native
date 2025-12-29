@@ -1,9 +1,9 @@
 package me.toylep.spring.cloudnative.merchservice.web;
 
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import me.toylep.spring.cloudnative.merchservice.config.MerchProperties;
 import me.toylep.spring.cloudnative.merchservice.domain.Merch;
 import me.toylep.spring.cloudnative.merchservice.domain.MerchService;
 import org.springframework.http.HttpStatus;
@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name="merch", description = "굿즈 API")
 public class MerchContorller {
     private final MerchService merchService;
+
+//    private final MerchProperties merchProperties;
 
     @GetMapping()
     public Iterable<Merch> get(){
@@ -42,4 +44,12 @@ public class MerchContorller {
     public Merch put(@PathVariable String isMn,@Valid @RequestBody Merch merch){
         return merchService.editMerchDetail(isMn, merch);
     }
+
+    /**
+     * Properties 테스트
+     */
+//    @GetMapping("/tests")
+//    public String tests(){
+//        return merchProperties.getGreeting();
+//    }
 }

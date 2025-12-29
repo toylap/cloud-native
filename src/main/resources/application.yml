@@ -12,3 +12,6 @@ server:
 spring:
   application:
     name: cloud-native
+
+merch:
+  greeting: Hello World!
