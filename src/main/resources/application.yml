@@ -17,6 +17,20 @@ spring:
   cloud:
     config:
       uri: http://localhost:8889
+      request-connect-timeout: 5000
+      request-read-timeout: 5000
+      fail-fast: true # retry
+      retry:
+        max-attempts: 6 # 최대 시도
+        initial-interval: 1000 # 첫 시도 간격
+        max-interval: 2000 # 최고 간격
+        multiplier: 1.1 # 승수, 배수
+
+management:
+  endpoints:
+    web:
+      expourse:
+        include: refresh
 
 merch:
   greeting: Hello World!
